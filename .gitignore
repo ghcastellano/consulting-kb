@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.venv/
+venv/
+__pycache__/
+.env
+.env.*
+!.env.example
+.DS_Store
+.vercel/
+.playwright-mcp/
+.codex/
+*.log
+{backend,frontend/

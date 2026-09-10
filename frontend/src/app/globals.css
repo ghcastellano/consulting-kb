@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:        #0c0b09;
+  --surface:   #141210;
+  --s2:        #1c1a16;
+  --s3:        #242018;
+  --border:    #272319;
+  --border2:   #332e22;
+  --text:      #e6e0d0;
+  --muted:     #7a7060;
+  --dim:       #3e3828;
+  --gold:      #c9993a;
+  --gold-l:    #e8c47a;
+  --gold-dim:  rgba(201,153,58,0.12);
+  --sage:      #7a9a74;
+  --red:       #c97a7a;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', system-ui;
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(201,153,58,0.18); color: var(--gold-l); }
+
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+/* grain */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* Utility classes */
+.font-display { font-family: 'Playfair Display', Georgia; }
+.font-mono    { font-family: 'DM Mono', monospace; }
+.text-gold    { color: var(--gold); }
+.text-gold-l  { color: var(--gold-l); }
+.text-muted   { color: var(--muted); }
+.text-dim     { color: var(--dim); }
+.text-sage    { color: var(--sage); }
+.text-red     { color: var(--red); }
+.bg-s2        { background: var(--s2); }
+.bg-s3        { background: var(--s3); }
+.border-base  { border-color: var(--border); }
+.border-2x    { border-color: var(--border2); }
+
+/* Scrollable area helper */
+.scroll-area { overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border2) transparent; }
+
+/* Markdown-like prose */
+.prose p   { margin-bottom: 0.6em; }
+.prose li  { margin-left: 1.2em; margin-bottom: 0.2em; list-style: disc; }
+.prose strong { color: var(--gold-l); font-weight: 500; }
+.prose code {
+  font-family: 'DM Mono', monospace; font-size: 0.82em;
+  background: var(--s3); padding: 0.1em 0.35em; border-radius: 3px;
+}
